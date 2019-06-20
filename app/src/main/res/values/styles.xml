@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Dashboard.Button">
+        <item name="android:textColor">@color/common_google_signin_btn_text_dark</item>
+        <item name="android:background">@color/common_google_signin_btn_text_light_default</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Dashboard">
+        <item name="android:listSelector">@color/common_google_signin_btn_text_light</item>
+        <item name="android:background">@color/blue</item>
+    </style>
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Experiment6</string>
+    <string name="Email">email</string>
+    <string name="password">password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">\n\nAlready have an account?</string>
+    <string name="login">Sign In</string>
+    <string name="admin_panel">\nAdmin Panel:</string>
+    <string name="sign_out">Sign out</string>
+    <string name="none">None\n</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="send_verification_link">Send Verification Link</string>
+    <string name="ViewPDF">PDF</string>
+
+</resources>
