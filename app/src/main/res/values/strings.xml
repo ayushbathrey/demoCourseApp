@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Experiment6</string>
+    <string name="app_name">Course Demo App</string>
     <string name="Email">email</string>
     <string name="password">password</string>
     <string name="register">Register</string>

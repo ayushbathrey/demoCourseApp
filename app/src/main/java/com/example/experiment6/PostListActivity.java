@@ -17,8 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.experiment6.ModelClass.Model;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -35,6 +37,8 @@ public class PostListActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mRef;
+    ImageButton imageButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,16 @@ public class PostListActivity extends AppCompatActivity {
         //send Query to FirebaseDatabase
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference("Data");
+        imageButton= (ImageButton)findViewById(R.id.imageButton);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(),dashboard.class);
+                Toast.makeText(PostListActivity.this, "Dashboard", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
     }
 
     //search data
