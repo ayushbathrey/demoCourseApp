@@ -16,9 +16,9 @@ public class Home extends Application {
         FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
 
         if(firebaseUser!=null){
-//            Intent intent=new Intent(Home.this,UserDashboardActivity.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            startActivity(intent);
+            Intent intenter=new Intent(Home.this,PostListActivity.class);
+            intenter.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intenter);
 //            finish();
             if(firebaseUser.getEmail().equals("arpit04199@gmail.com")){
                 Intent intent=new Intent(Home.this,PostListActivity.class);
@@ -31,5 +31,6 @@ public class Home extends Application {
                 startActivity(intent);
             }
         }
+
     }
 }

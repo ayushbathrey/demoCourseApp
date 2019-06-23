@@ -11,5 +11,7 @@
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="send_verification_link">Send Verification Link</string>
     <string name="ViewPDF">PDF</string>
+    <string name="search">Search</string>
+    <string name="sort">Sort</string>
 
 </resources>

@@ -220,7 +220,9 @@ public class PostListActivity extends AppCompatActivity {
         //inflate the menu; this adds items to the action bar if it present
         getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem item = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+        imageButton= (ImageButton)findViewById(R.id.imageButton);
+
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -239,6 +241,10 @@ public class PostListActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed(){
+        moveTaskToBack(true);
+    }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -248,8 +254,22 @@ public class PostListActivity extends AppCompatActivity {
             showSortDialog();
             return true;
         }
+        if (id == R.id.imageButton) {
+            //display alert dialog to choose sorting
+            profile();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void profile(){
+//        Toast.makeText(this, "touched", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getBaseContext(),dashboard.class);
+                Toast.makeText(PostListActivity.this, "Dashboard", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+
+
     }
 
     private void showSortDialog() {

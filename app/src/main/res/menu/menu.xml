@@ -4,13 +4,19 @@
 
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/ic_wifi_black_24dp"
-        android:title="Search"
+        android:icon="@drawable/simplebackground"
+        android:title="@string/search"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_sort"
-        android:title="Sort"
-        app:showAsAction="never" />
+        android:title="@string/sort"
+        android:icon="@drawable/ic_wifi_black_24dp"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/imageButton"
+        android:title="@string/sort"
+        android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        app:showAsAction="always" />
 
 </menu>
