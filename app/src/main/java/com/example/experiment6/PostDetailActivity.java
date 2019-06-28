@@ -151,7 +151,6 @@ public class PostDetailActivity extends AppCompatActivity {
                     homeIntent.putExtra("URL",upload.getUrl());
                     startActivity(homeIntent);
                 }
-
                 //Opening the upload file in browser using the upload url
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setData(Uri.parse(upload.getUrl()));
