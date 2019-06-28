@@ -272,6 +272,7 @@ public class PostListActivity extends AppCompatActivity {
 
     }
 
+
     private void showSortDialog() {
         //options to display in dialog
         String[] sortOptions = {" Newest", " Oldest"};

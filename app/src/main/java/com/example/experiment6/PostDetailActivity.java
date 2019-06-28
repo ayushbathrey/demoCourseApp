@@ -138,6 +138,20 @@ public class PostDetailActivity extends AppCompatActivity {
                 Log.d("info",upload.getUrl());
                 Toast.makeText(PostDetailActivity.this, "button clicked: "+upload.getUrl(), Toast.LENGTH_SHORT).show();
 
+                if(upload.getUrl().startsWith("https")){
+                    Intent homeIntent = new Intent(PostDetailActivity.this,ViewPdfActivity.class);
+                    homeIntent.putExtra("URL",upload.getUrl());
+                    startActivity(homeIntent);
+                    Toast.makeText(PostDetailActivity.this, "PDF", Toast.LENGTH_SHORT).show();
+
+                } else{
+                    Toast.makeText(PostDetailActivity.this, "Video", Toast.LENGTH_SHORT).show();
+
+                    Intent homeIntent = new Intent(PostDetailActivity.this,VideoActivity.class);
+                    homeIntent.putExtra("URL",upload.getUrl());
+                    startActivity(homeIntent);
+                }
+
                 //Opening the upload file in browser using the upload url
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setData(Uri.parse(upload.getUrl()));
@@ -149,10 +163,10 @@ public class PostDetailActivity extends AppCompatActivity {
 ////                startActivity(homeIntent);
 ////                finish();
 ////                Intent intent = new Intent(getBaseContext(),ViewUploadsActivity.class);
-                Intent homeIntent = new Intent(PostDetailActivity.this,ViewPdfActivity.class);
-                homeIntent.putExtra("URL",upload.getUrl());
-                startActivity(homeIntent);
+
+
             }
+            //end
         });
 
         //getting the database reference
