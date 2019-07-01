@@ -13,5 +13,6 @@
     <string name="ViewPDF">PDF</string>
     <string name="search">Search</string>
     <string name="sort">Sort</string>
+    <string name="course_content">*Course Content*</string>
 
 </resources>

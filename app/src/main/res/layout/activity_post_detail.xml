@@ -82,10 +82,20 @@
         </LinearLayout>
     </ScrollView>
 
+    <TextView
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="345dp"
+        android:background="#B4A4A4"
+        android:text="@string/course_content"
+        android:textAlignment="center"
+        android:textSize="17sp" />
+
     <ListView
         android:id="@+id/listView"
         style="@android:style/Widget.DeviceDefault.ExpandableListView"
-        android:layout_width="383dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="380dp"
         android:background="#B9F6CA"

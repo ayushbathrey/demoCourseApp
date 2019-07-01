@@ -46,7 +46,7 @@ public class PostDetailActivity extends AppCompatActivity {
     ImageView mImageIv;
     ListView listView;
 
-    DatabaseReference mDatabaseReference;
+    DatabaseReference mDatabaseReference,mRef;
 
     //list to store uploads data
     List<Upload> uploadList;
@@ -79,6 +79,8 @@ public class PostDetailActivity extends AppCompatActivity {
         byte[] bytes = getIntent().getByteArrayExtra("image");
         String title = getIntent().getStringExtra("title");
         String desc = getIntent().getStringExtra("description");
+        String upload = getIntent().getStringExtra("upload");
+        Log.d("link",title);
         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 
         //set data to views
@@ -127,6 +129,7 @@ public class PostDetailActivity extends AppCompatActivity {
             }
         });
         uploadList = new ArrayList<>();
+        final String[] dataChild = {""};
 
         //adding a clicklistener on listview
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -134,8 +137,10 @@ public class PostDetailActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //getting the upload
                 Upload upload = uploadList.get(i);
+                dataChild[0] = upload.getName();
                 Log.d("info",upload.getName());
                 Log.d("info",upload.getUrl());
+                Log.d("child",dataChild[0]);
                 Toast.makeText(PostDetailActivity.this, "button clicked: "+upload.getUrl(), Toast.LENGTH_SHORT).show();
 
                 if(upload.getUrl().startsWith("https")){
@@ -168,23 +173,32 @@ public class PostDetailActivity extends AppCompatActivity {
             //end
         });
 
+
         //getting the database reference
-//        mDatabaseReference = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
+        mRef = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
+        //String slink = "/"+title.replaceAll("\\s", "%20")+"/uploads";
+        String slink = "/"+title+"/uploads";
+        final String link ="/01/uploads";
+        Log.d("links",slink);
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference((Constants.DATABASE_PATH_UPLOADS)+ slink);
 
         //retrieving upload data from firebase database
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+//                datalink[0] = String.valueOf(mDatabaseReference.getParent());
+//                String slink = datalink[0].substring(47);
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
                     uploadList.add(upload);
+
                 }
 
                 String[] uploads = new String[uploadList.size()];
 
                 for (int i = 0; i < uploads.length; i++) {
                     uploads[i] = uploadList.get(i).getName();
+                    Log.d("Link",uploads[i]);
                 }
 
 

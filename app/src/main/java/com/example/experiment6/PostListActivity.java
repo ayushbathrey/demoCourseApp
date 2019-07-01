@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,11 +23,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.experiment6.ModelClass.GetFile;
 import com.example.experiment6.ModelClass.Model;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
 
@@ -36,7 +41,7 @@ public class PostListActivity extends AppCompatActivity {
     SharedPreferences mSharedPref; //for saving sort settings
     RecyclerView mRecyclerView;
     FirebaseDatabase mFirebaseDatabase;
-    DatabaseReference mRef;
+    DatabaseReference mRef,dref;
     ImageButton imageButton;
 
 
@@ -73,7 +78,15 @@ public class PostListActivity extends AppCompatActivity {
         //send Query to FirebaseDatabase
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference("Data");
-        imageButton= (ImageButton)findViewById(R.id.imageButton);
+        dref = mFirebaseDatabase.getReference(Constants.DATABASE_COURSE_UPLOADS);
+            Log.d("infoo", String.valueOf(mRef));
+        final String slink;
+        final String datalink;
+
+        datalink = String.valueOf(dref.getParent());
+//        slink = datalink.substring(47);
+        Log.d("linkss",datalink);
+        /*imageButton= (ImageButton)findViewById(R.id.imageButton);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +95,7 @@ public class PostListActivity extends AppCompatActivity {
                 Toast.makeText(PostListActivity.this, "Dashboard", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     //search data
@@ -107,13 +120,13 @@ public class PostListActivity extends AppCompatActivity {
 
                     @Override
                     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
                         ViewHolder viewHolder = super.onCreateViewHolder(parent, viewType);
 
                         viewHolder.setOnClickListener(new ViewHolder.ClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
                                 //Views
+//                                Log.d("data",mRef.getKey());
                                 TextView mTitleTv = view.findViewById(R.id.rTitleTv);
                                 TextView mDescTv = view.findViewById(R.id.rDescriptionTv);
                                 ImageView mImageView = view.findViewById(R.id.rImageView);
@@ -125,12 +138,14 @@ public class PostListActivity extends AppCompatActivity {
 
                                 //pass this data to new activity
                                 Intent intent = new Intent(view.getContext(), PostDetailActivity.class);
+                                Log.d("data", String.valueOf(view.getContext()));
                                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                                 mBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                                 byte[] bytes = stream.toByteArray();
                                 intent.putExtra("image", bytes); //put bitmap image as array of bytes
                                 intent.putExtra("title", mTitle); // put title
                                 intent.putExtra("description", mDesc); //put description
+                                intent.putExtra("upload", mTitle); //put description
                                 startActivity(intent); //start activity
 
                             }
