@@ -1,0 +1,111 @@
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:shape="oval">-->
+
+<!--<corners-->
+    <!--android:bottomRightRadius="10dp"-->
+    <!--android:radius="21dp" />-->
+
+<!--<gradient-->
+<!--android:angle="0"-->
+<!--android:centerX="float"-->
+<!--android:centerY="float"-->
+<!--android:endColor="@color/blue"-->
+<!--android:gradientRadius="integer"-->
+<!--android:startColor="#0189ff"-->
+    <!--android:centerColor="#F9FCFA"-->
+    <!--android:color="#01f1fa"-->
+<!--android:type="linear" />-->
+
+    <!--&lt;!&ndash;If your shape requires only one solid color&ndash;&gt;-->
+    <!--&lt;!&ndash;<solid-->
+        <!--android:color="#FFFFFF" />&ndash;&gt;-->
+
+<!--<size-->
+<!--android:width="82dp"-->
+<!--android:height="82dp" />-->
+
+    <!--&lt;!&ndash;Use android:dashWidth="2dp" and android:dashGap="2dp"-->
+    <!--to add dashes to your stroke&ndash;&gt;-->
+<!--<stroke-->
+<!--android:width="2dp"-->
+<!--android:color="#FFFFFF" />-->
+
+    <!--&lt;!&ndash;If you want to add padding&ndash;&gt;-->
+     <!--<padding-->
+         <!--android:left="10dp"-->
+         <!--android:top="20dp"-->
+         <!--android:right="40dp"-->
+         <!--android:bottom="8dp"-->
+    <!--</shape>-->
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">-->
+    <!--&lt;!&ndash; Larger blue circle in back &ndash;&gt;-->
+    <!--<item>-->
+        <!--<shape android:shape="oval">-->
+            <!--<solid android:color="#27A9E9"/>-->
+            <!--<size-->
+                <!--android:width="15dp"-->
+                <!--android:height="15dp"/>-->
+        <!--</shape>-->
+    <!--</item>-->
+    <!--&lt;!&ndash; Smaller red circle in front &ndash;&gt;-->
+    <!--<item>-->
+        <!--<shape android:shape="oval">-->
+            <!--&lt;!&ndash; transparent stroke = larger_circle_size - smaller_circle_size &ndash;&gt;-->
+            <!--<stroke android:color="@android:color/transparent"-->
+                <!--android:width="5dp"/>-->
+            <!--<solid android:color="#ffffff"/>-->
+            <!--<size-->
+                <!--android:width="10dp"-->
+                <!--android:height="10dp"/>-->
+        <!--</shape>-->
+    <!--</item>-->
+<!--</layer-list>-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <shape android:shape="oval">
+            <padding
+                android:bottom="10dp"
+                android:left="10dp"
+                android:right="10dp"
+                android:top="10dp" />
+
+            <solid android:color="@color/gradStart" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding
+                android:bottom="10dp"
+                android:left="10dp"
+                android:right="10dp"
+                android:top="10dp" />
+
+            <solid android:color="#F8F8F8" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+
+            <padding
+                android:bottom="10dp"
+                android:left="10dp"
+                android:right="10dp"
+                android:top="10dp" />
+
+            <solid android:color="@color/gradStop" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+
+            <padding
+                android:bottom="1dp"
+                android:left="1dip"
+                android:right="1dp"
+                android:top="1dp" />
+
+            <solid android:color="#F9FAFA" />
+        </shape>
+    </item>
+</layer-list>

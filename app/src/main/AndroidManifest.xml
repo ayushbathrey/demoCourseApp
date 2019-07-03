@@ -9,18 +9,26 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".Home"
         android:allowBackup="true"
         android:icon="@mipmap/cs_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/cs_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".VideoActivity"></activity>
-        <activity android:name=".PostListActivity" />
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".SlashScreen">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".VideoActivity" />
+        <activity android:name=".PostListActivity"
+            android:theme="@style/AppTheme" />
+
         <activity
             android:name=".PostDetailActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".dashboard" />
         <activity android:name=".ForgotPassActivity" />
         <activity
@@ -33,13 +41,9 @@
             android:name=".LoginActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ViewUploadsActivity" />
+        <activity android:name=".Home" />
         <activity android:name=".ViewPdfActivity" />
     </application>
 
