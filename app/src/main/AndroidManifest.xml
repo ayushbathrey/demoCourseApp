@@ -29,7 +29,9 @@
         <activity
             android:name=".PostDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".dashboard" />
+        <activity android:name=".dashboard"
+            android:theme="@style/AppTheme" />
+
         <activity android:name=".ForgotPassActivity" />
         <activity
             android:name=".UserDashboardActivity"
@@ -44,6 +46,7 @@
         </activity>
         <activity android:name=".ViewUploadsActivity" />
         <activity android:name=".Home" />
+        <activity android:name=".Experiment6" />
         <activity android:name=".ViewPdfActivity" />
     </application>
 

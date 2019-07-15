@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.experiment6.dashboard"
+    android:background="#fcfcfc"
+    android:gravity="center|top"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="#fcfcfc"
-    android:gravity="center"
-    android:id="@+id/ll">
+    tools:context="com.example.experiment6.dashboard">
 
     <LinearLayout
-        android:clipToPadding="false"
-        android:gravity="center"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
         <android.support.v7.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
             android:layout_width="340dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:background="@drawable/cerclebackgroundpurple"
-                    android:src="@drawable/ic_wifi_black_24dp"
-                    android:padding="10dp"/>
+                    android:padding="10dp"
+                    android:src="@drawable/ic_wifi_black_24dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -43,11 +45,12 @@
                     android:layout_marginTop="10dp"
                     android:text="My Courses"
                     android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/lightgray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@color/lightgray" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -57,6 +60,19 @@
                     android:text="View your Courses"
                     android:textColor="@android:color/darker_gray" />
 
+                <ListView
+                    android:id="@+id/listView"
+                    style="@android:style/Widget.DeviceDefault.ExpandableListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#B9F6CA"
+                    android:choiceMode="multipleChoiceModal"
+                    android:clickable="true"
+                    android:divider="@color/colorPrimaryDark"
+                    android:focusable="true"
+                    android:hapticFeedbackEnabled="true"
+                    android:theme="@style/Widget.AppCompat.Light.ListView.DropDown"/>
+
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -64,17 +80,18 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
+
         <android.support.v7.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
             android:layout_width="160dp"
-            android:layout_height="190dp"
-            android:layout_margin="10dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -97,28 +114,15 @@
                     android:text="@string/sign_out"
                     android:textStyle="bold" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="10dp"
-                    android:background="@color/lightgray" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="Sign out of your profile"
-                    android:textColor="@android:color/darker_gray" />
-
             </LinearLayout>
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
             android:layout_width="160dp"
-            android:layout_height="190dp"
-            android:layout_margin="10dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -137,22 +141,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Links"
+                    android:text="Recents"
                     android:textStyle="bold" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="10dp"
-                    android:background="@color/lightgray" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="Check your bank activities"
-                    android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

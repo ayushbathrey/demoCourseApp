@@ -46,37 +46,41 @@
                 android:textSize="16sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/wallBtn"
+                    style="@style/Base.Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@android:drawable/ic_menu_set_as"
+                    android:text="Subscibe" />
+
+                <Button
                     android:id="@+id/saveBtn"
                     style="@style/Base.Widget.AppCompat.Button.Colored"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
+                    android:textSize="12sp"
                     android:drawableLeft="@android:drawable/ic_menu_save"
-                    android:text="Save" />
+                    android:text="Set" />
 
                 <Button
                     android:id="@+id/shareBtn"
                     style="@style/Base.Widget.AppCompat.Button.Colored"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textSize="12sp"
                     android:layout_weight="1"
                     android:drawableLeft="?attr/actionModeShareDrawable"
                     android:text="Share" />
 
-                <Button
-                    android:id="@+id/wallBtn"
-                    style="@style/Base.Widget.AppCompat.Button.Colored"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:textAlignment="textStart"
-                    android:drawableLeft="@android:drawable/ic_menu_set_as"
-                    android:text="Set" />
+
             </LinearLayout>
 
         </LinearLayout>

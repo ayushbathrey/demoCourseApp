@@ -74,11 +74,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent=new Intent(MainActivity.this,PostListActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                finish();
             }
             else {
                 Intent intent=new Intent(MainActivity.this,PostListActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                finish();
             }
         }
 

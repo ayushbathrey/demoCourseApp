@@ -41,8 +41,7 @@ public class PostListActivity extends AppCompatActivity {
     SharedPreferences mSharedPref; //for saving sort settings
     RecyclerView mRecyclerView;
     FirebaseDatabase mFirebaseDatabase;
-    DatabaseReference mRef,dref;
-    ImageButton imageButton;
+    DatabaseReference mRef;
 
 
     @Override
@@ -50,6 +49,10 @@ public class PostListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_list);
 
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mRef = mFirebaseDatabase.getReference("Data");
+        mRef.keepSynced(true);
+        Log.d("Data","data sync offline");
         //Actionbar
         ActionBar actionBar = getSupportActionBar();
         //set title
@@ -76,16 +79,15 @@ public class PostListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         //send Query to FirebaseDatabase
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mRef = mFirebaseDatabase.getReference("Data");
-        dref = mFirebaseDatabase.getReference(Constants.DATABASE_COURSE_UPLOADS);
-            Log.d("infoo", String.valueOf(mRef));
-        final String slink;
-        final String datalink;
 
-        datalink = String.valueOf(dref.getParent());
+//        dref = mFirebaseDatabase.getReference(Constants.DATABASE_COURSE_UPLOADS);
+//            Log.d("infoo", String.valueOf(mRef));
+//        final String slink;
+//        final String datalink;
+
+//        datalink = String.valueOf(dref.getParent());
 //        slink = datalink.substring(47);
-        Log.d("linkss",datalink);
+//        Log.d("linkss",datalink);
         /*imageButton= (ImageButton)findViewById(R.id.imageButton);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -164,6 +166,8 @@ public class PostListActivity extends AppCompatActivity {
 
         //set adapter to recyclerview
         mRecyclerView.setAdapter(firebaseRecyclerAdapter);
+        //Making files available offline
+        mRef.keepSynced(true);
     }
 
 
@@ -171,6 +175,7 @@ public class PostListActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        //Making files available offline
         FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Model, ViewHolder>(
                         Model.class,
@@ -235,8 +240,6 @@ public class PostListActivity extends AppCompatActivity {
         //inflate the menu; this adds items to the action bar if it present
         getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem item = menu.findItem(R.id.action_search);
-        imageButton= (ImageButton)findViewById(R.id.imageButton);
-
         SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

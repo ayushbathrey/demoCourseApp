@@ -61,7 +61,7 @@ protected void onCreate(Bundle savedInstanceState) {
         findViewById(R.id.textViewUploads).setOnClickListener(this);
         }
 //this function will get the pdf from the storage
-private void getPDF() {
+        private void getPDF() {
         //for greater than lolipop versions we need the permissions asked on runtime
         //so if the permission is not available user will go to the screen to allow storage permission
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(this,

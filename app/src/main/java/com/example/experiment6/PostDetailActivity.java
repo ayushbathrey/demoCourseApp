@@ -26,6 +26,8 @@ import android.Manifest;
 import android.widget.Toast;
 
 import com.example.experiment6.ModelClass.Upload;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,10 +48,12 @@ public class PostDetailActivity extends AppCompatActivity {
     ImageView mImageIv;
     ListView listView;
 
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference mDatabaseReference,mRef;
 
     //list to store uploads data
     List<Upload> uploadList;
+    String userid,name="name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +78,13 @@ public class PostDetailActivity extends AppCompatActivity {
         mWallBtn = findViewById(R.id.wallBtn);
         listView = (ListView) findViewById(R.id.listView);
 
+        userid = user.getUid();
+        Log.d( "user: ", userid);
+
 
         //get data from intent
         byte[] bytes = getIntent().getByteArrayExtra("image");
-        String title = getIntent().getStringExtra("title");
+        final String title = getIntent().getStringExtra("title");
         String desc = getIntent().getStringExtra("description");
         String upload = getIntent().getStringExtra("upload");
         Log.d("link",title);
@@ -125,7 +132,7 @@ public class PostDetailActivity extends AppCompatActivity {
         mWallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setImgWallpaper();
+                setImgWallpaper(userid,title);
             }
         });
         uploadList = new ArrayList<>();
@@ -175,7 +182,8 @@ public class PostDetailActivity extends AppCompatActivity {
 
 
         //getting the database reference
-        mRef = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
+        mRef = FirebaseDatabase.getInstance().getReference();
+        Log.d( "ref",mRef.toString() );
         //String slink = "/"+title.replaceAll("\\s", "%20")+"/uploads";
         String slink = "/"+title+"/uploads";
         final String link ="/01/uploads";
@@ -198,7 +206,7 @@ public class PostDetailActivity extends AppCompatActivity {
 
                 for (int i = 0; i < uploads.length; i++) {
                     uploads[i] = uploadList.get(i).getName();
-                    Log.d("Link",uploads[i]);
+                   // Log.d("Link",uploads[i]);
                 }
 
 
@@ -230,11 +238,14 @@ public class PostDetailActivity extends AppCompatActivity {
 //
 //    }
 
-    private void setImgWallpaper() {
-        WallpaperManager myWallManager = WallpaperManager.getInstance(getApplicationContext());
+    private void setImgWallpaper(String userId, String title ) {
         try {
-            myWallManager.setBitmap(bitmap);
-            Toast.makeText(this, "Wallpaper set...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Wallpaper set..."+title, Toast.LENGTH_SHORT).show();
+            Upload upload = new Upload(title,title);
+            mRef.child( "users" ).child( userId ).push().setValue( upload );
+           // mRef.child( "users" ).child( userId ).child(mDatabaseReference.push().getKey()).setValue( name,title );
+            //mDatabaseReference.child(mDatabaseReference.push().getKey()).setValue(upload);
+
         }
         catch (Exception e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
