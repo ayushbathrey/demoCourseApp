@@ -15,23 +15,24 @@
         android:roundIcon="@mipmap/cs_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".profile"></activity>
         <activity android:name=".SlashScreen">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".VideoActivity" />
-        <activity android:name=".PostListActivity"
+        <activity
+            android:name=".PostListActivity"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".PostDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".dashboard"
+        <activity
+            android:name=".dashboard"
             android:theme="@style/AppTheme" />
-
         <activity android:name=".ForgotPassActivity" />
         <activity
             android:name=".UserDashboardActivity"
@@ -42,8 +43,7 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".ViewUploadsActivity" />
         <activity android:name=".Home" />
         <activity android:name=".Experiment6" />

@@ -2,15 +2,23 @@ package com.example.experiment6;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.experiment6.ModelClass.Upload;
@@ -21,12 +29,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class dashboard extends AppCompatActivity {
-    ImageButton imageButton;
+    ImageButton imageButton,image;
     Button playerbtn;
     FirebaseAuth mAuth;
 
@@ -38,6 +48,8 @@ public class dashboard extends AppCompatActivity {
     //list to store uploads data
     List<Upload> uploadList;
     String userId;
+    //ActionBar actionBar = getSupportActionBar();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -46,8 +58,7 @@ public class dashboard extends AppCompatActivity {
         userId = user.getUid();
         Toast.makeText( this, "user: "+userId, Toast.LENGTH_SHORT ).show();
         imageButton = (ImageButton) findViewById( R.id.signOutButtton );
-        playerbtn = (Button) findViewById( R.id.playerbtn );
-//        imageButton =(ImageButton)findViewById(R.id.signOutButtton);
+        image =(ImageButton)findViewById(R.id.profile);
         listView = (ListView) findViewById( R.id.listView );
         imageButton.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -61,15 +72,6 @@ public class dashboard extends AppCompatActivity {
 //                startActivity(homeIntent);
                 startActivity( intent );
 
-            }
-        } );
-
-        playerbtn.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getBaseContext(), VideoActivity.class );
-                Toast.makeText( dashboard.this, "Youtube!!", Toast.LENGTH_SHORT ).show();
-                startActivity( intent );
             }
         } );
 
@@ -108,6 +110,8 @@ public class dashboard extends AppCompatActivity {
 
         } );
 
+        Picasso.get().load(user.getPhotoUrl()).fit().into(image);
+
 //    @Override
 //    public void onBackPressed() {
 //        new AlertDialog.Builder(this)
@@ -130,4 +134,33 @@ public class dashboard extends AppCompatActivity {
 
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //handle other action bar item clicks here
+        if (id == R.id.profileId) {
+            //display alert dialog to choose sorting
+            profile();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //inflate the menu; this adds items to the action bar if it present
+        getMenuInflater().inflate(R.menu.profilemenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void profile(){
+//        Toast.makeText(this, "touched", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getBaseContext(),profile.class);
+        Toast.makeText(dashboard.this, "profile", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
+
+
+    }
+
 }

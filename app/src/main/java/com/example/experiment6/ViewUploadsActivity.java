@@ -1,7 +1,6 @@
 package com.example.experiment6;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,7 +40,7 @@ public class ViewUploadsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_uploads);
         uploadList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.listView);
-        imageButton= (ImageButton)findViewById(R.id.imageButton);
+        imageButton= (ImageButton)findViewById(R.id.profileId );
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override

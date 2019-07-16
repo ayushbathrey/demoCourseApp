@@ -20,4 +20,7 @@
     <color name="pink">#fe104d</color>
     <color name="blue">#039BE5</color>
     <color name="black_overlay">#66000000</color>
+    <color name="grayLight">#DFDADB</color>
+    <color name="buttonstylewithgradient">#4bb6ef</color>
+
 </resources>

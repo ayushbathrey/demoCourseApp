@@ -11,11 +11,11 @@
     <item
         android:id="@+id/action_sort"
         android:title="@string/sort"
-        android:icon="@drawable/ic_settings_black_24dp"
+        android:icon="@drawable/ic_sort_black_24dp"
         app:showAsAction="always" />
     <item
-        android:id="@+id/imageButton"
-        android:title="@string/sort"
+        android:id="@+id/profileId"
+        android:title="@string/Profile"
         android:icon="@drawable/ic_person_black_24dp"
         app:showAsAction="always" />
 

@@ -15,6 +15,77 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/profile"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/cerclebackgroundyello"
+                    android:clickable="true"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/ic_attach_file_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="View Profile"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/signOutButtton"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/sign_out"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -37,7 +108,7 @@
                     android:layout_height="64dp"
                     android:background="@drawable/cerclebackgroundpurple"
                     android:padding="10dp"
-                    android:src="@drawable/ic_wifi_black_24dp" />
+                    app:srcCompat="@drawable/ic_airplay_black_24dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -50,15 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_margin="10dp"
-                    android:background="@color/lightgray" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="View your Courses"
-                    android:textColor="@android:color/darker_gray" />
+                    android:background="@color/grayLight" />
 
                 <ListView
                     android:id="@+id/listView"
@@ -71,89 +134,12 @@
                     android:divider="@color/colorPrimaryDark"
                     android:focusable="true"
                     android:hapticFeedbackEnabled="true"
-                    android:theme="@style/Widget.AppCompat.Light.ListView.DropDown"/>
+                    android:theme="@style/Widget.AppCompat.Light.ListView.DropDown" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <android.support.v7.widget.CardView
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clickable="true"
-                android:gravity="center"
-                android:onClick="signOut"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/signOutButtton"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/sign_out"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/cerclebackgroundyello"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_attach_file_black_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Recents"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/playerbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Video" />
-
 
 </LinearLayout>
